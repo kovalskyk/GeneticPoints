@@ -20,7 +20,7 @@ function setup() {
 	createCanvas(800, 800);
   colorMode(RGB, 255, 255, 255, 100);
 	background(220);
-	let popmax = 3;
+	let popmax = 6;
   let mutationRate = 0.05;
 
 	population = new Population(mutationRate, popmax);

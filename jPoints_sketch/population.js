@@ -22,6 +22,7 @@ class Population {
         this.population[i] = new Points(new DNA(), 400 + (i-3) * 800, 1200);
     }
   }
+}
 
   calc() {
     for (let i = 0; i < this.population.length; i++) {
