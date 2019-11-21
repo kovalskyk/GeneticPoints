@@ -35,7 +35,7 @@
      this.dna = dna_;
      this.wh = 730;
      this.r = new Rectangle(this.xPos - this.wh / 2, this.yPos - this.wh / 2, this.wh, this.wh);
-     this.pointCount = 1000;
+     this.pointCount = 600;
      this.lissajousPoints = [];
      //freqX = 4;
      this.freqY = 7;

@@ -4,7 +4,7 @@ let diameter;
 let ellipses = [];
 
 var lineWeight = 0.1;
-var pointCount = 1000;
+var pointCount = 600;
 
 var freqX = 4;
 var freqY = 7;
