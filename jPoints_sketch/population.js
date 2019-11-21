@@ -16,7 +16,10 @@ class Population {
     this.matingPool = [];
     this.generations = 0; // Number of generations
     for (let i = 0; i < num; i++) {
-      this.population[i] = new Points(new DNA(), 400 + i * 800, 400);
+      if (i < 3) {
+        this.population[i] = new Points(new DNA(), 400 + i * 800, 400);
+    } else {
+        this.population[i] = new Points(new DNA(), 400 + (i-3) * 800, 1200);
     }
   }
 

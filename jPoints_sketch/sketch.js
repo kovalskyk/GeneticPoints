@@ -35,7 +35,7 @@ function setup() {
 function draw() {
 	//background(180);
 
-	population.rollover(mouseX, mouseY);
+	//population.rollover(mouseX, mouseY);
 }
 
 /*function keyPressed(){
