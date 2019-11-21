@@ -17,9 +17,9 @@ class Population {
     this.generations = 0; // Number of generations
     for (let i = 0; i < num; i++) {
       if (i < 3) {
-        this.population[i] = new Points(new DNA(), 400 + i * 800, 400);
+        this.population[i] = new Points(new DNA(), 400 + i * 900, 400);
     } else {
-        this.population[i] = new Points(new DNA(), 400 + (i-3) * 800, 1200);
+        this.population[i] = new Points(new DNA(), 400 + (i-3) * 900, 1600);
     }
   }
 }
