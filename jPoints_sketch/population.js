@@ -39,9 +39,9 @@ class Population {
   }
 
   //Are we rolling over any of the faces?
-  rollover(mx, my) {
+  rollover() {
     for (let i = 0; i < this.population.length; i++) {
-      this.population[i].rollover(mx, my);
+      this.population[i].rollover();
     }
   }
 

@@ -17,7 +17,7 @@ let population;
 
 
 function setup() {
-	createCanvas(800, 800);
+	createCanvas(1500, 800);
   colorMode(RGB, 255, 255, 255, 100);
 	background(220);
 	let popmax = 6;
@@ -33,11 +33,16 @@ function setup() {
 }
 
 function draw() {
-	//background(180);
-
-	//population.rollover(mouseX, mouseY);
+	fill(255);
+	noStroke();
+	rect(430, 320, 40, 40);
 }
 
+	function keyPressed(){
+		if (key == 'Q') {
+		population[0].rollover();
+	}
+}
 /*function keyPressed(){
 	if (key == '1') points.freqX--;
 	if (key == '2') points.freqX++;

@@ -65,8 +65,8 @@ calc() {
 
       var x = sin(angle * freqX + radians(this.phi)) * cos(angle * this.modFreqX);
       var y = sin(angle * this.freqY) * cos(angle * this.modFreqY);
-      x *= width / 2 - 30;
-      y *= height / 2 - 30;
+      x *= 800 / 2 - 30;
+      y *= 800 / 2 - 30;
 
       this.lissajousPoints[i] = createVector(x,y);
     }
@@ -99,24 +99,16 @@ calc() {
     strokeWeight(1);
     rectMode(CENTER);
     rect(0, 0, this.wh, this.wh);
-
-
     pop();
+
+    textAlign(CENTER);
+    fill(255, 0, 0);
+    textSize(20);
+    text('' + floor(this.fitness), this.xPos/2-100, this.yPos/3);
   }
 
-  rollover(mx, my) {
-  if (this.r.contains(mx, my)) {
-    this.rolloverOn = true;
-    this.fitness += 0.25;
-  } else {
-    this.rolloverOn = false;
-  }
-
-  textAlign(CENTER);
-  if (this.rolloverOn) fill(0);
-  else fill(0.25);
-  text('' + floor(this.fitness), this.xPos, this.yPos + 55);
-
+  rollover() {
+    this.fitness += 1;
 }
 }
 
