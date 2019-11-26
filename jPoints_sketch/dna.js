@@ -34,6 +34,7 @@ class DNA {
     return newgenes;
   }
 
+
   // Based on a mutation probability, picks a new random character in array spots
   mutate(m) {
     for (let i = 0; i < this.genes.length; i++) {

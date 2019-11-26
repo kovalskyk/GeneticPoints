@@ -37,6 +37,8 @@ class Figure{
 
     let mycolor = color(rr, gg, bb, myalpha);
 
+    if (int(random(2)) == 0) {
+      console.log('without noise');
     for (var i = 0; i <= this.pointCount; i++) {
     	var angle = map(i, 0, this.pointCount, 0, TAU);
     	this.noiseVal = 0.1;
@@ -47,15 +49,40 @@ class Figure{
       let n = noise(xoff);
       let m = noise(xoff);
 
-      //var x = sin(angle * freqX + radians(phi)) * cos(angle * modFreqX);
-      //var y = sin(angle * freqY) * cos(angle * modFreqY);
 
-    	var x = sin(angle*n * freqX + radians(phi)) * cos(angle*m * modFreqX);
-    	var y = sin(angle*m * freqY) * cos(angle*n * modFreqY);
-    	x *= 800 / 2 - 30;  //width / 2 - 30;
-    	y *= 800 / 2 - 30; //height / 2 - 30;
+        var x = sin(angle * freqX + radians(phi)) * cos(angle * modFreqX);
+        var y = sin(angle * freqY) * cos(angle * modFreqY);
 
-    	this.lissajousPoints[i] = createVector(x,y);
+        x *= 800 / 2 - 30;  //width / 2 - 30;
+      	y *= 800 / 2 - 30; //height / 2 - 30;
+
+      	this.lissajousPoints[i] = createVector(x,y);
+
+      }
+    }
+    else {
+      console.log('with noise');
+      for (var i = 0; i <= this.pointCount; i++) {
+      	var angle = map(i, 0, this.pointCount, 0, TAU);
+      	this.noiseVal = 0.1;
+
+        // let noise = noise(noiseVal);
+
+        let xoff = 0.0;
+        let n = noise(xoff);
+        let m = noise(xoff);
+
+
+    	   var x = sin(angle*n * freqX + radians(phi)) * cos(angle*m * modFreqX);
+    	   var y = sin(angle*m * freqY) * cos(angle*n * modFreqY);
+
+         x *= 800 / 2 - 30;  //width / 2 - 30;
+       	y *= 800 / 2 - 30; //height / 2 - 30;
+
+       	this.lissajousPoints[i] = createVector(x,y);
+
+
+      }
     }
 
     push();

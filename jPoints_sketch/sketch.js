@@ -21,7 +21,6 @@ function setup() {
 console.log(population);
 	population.display();
 
-	console.log(windowWidth, windowHeight);
 }
 
 function draw() {
