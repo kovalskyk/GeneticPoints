@@ -22,10 +22,10 @@ class Population {
     this.num = num;
 
     for (let i = 0; i < num; i++) {
-      if (i < 3) {
+      if (i < 5) {
         this.population[i] = new Figure(new DNA(), 450 + i * 900, 500);
     } else {
-        this.population[i] = new Figure(new DNA(), 450 + (i-3) * 900, 1600);
+        this.population[i] = new Figure(new DNA(), 450 + (i-5) * 900, 1600);
     }
   }
 
@@ -96,10 +96,10 @@ class Population {
       // this.population[i] = new Figure(child, 50 + i * 75, 60);
 
 
-        if (i < 3) {
+        if (i < 5) {
           this.population[i] = new Figure(child, 450 + i * 900, 500);
       } else {
-          this.population[i] = new Figure(child, 450 + (i-3) * 900, 1600);
+          this.population[i] = new Figure(child, 450 + (i-5) * 900, 1600);
     }
 
     }

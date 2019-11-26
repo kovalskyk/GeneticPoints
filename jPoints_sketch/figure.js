@@ -47,8 +47,8 @@ class Figure{
       let n = noise(xoff);
       let m = noise(xoff);
 
-      // var x = sin(angle * freqX + radians(phi)) * cos(angle * modFreqX);
-      // var y = sin(angle * freqY) * cos(angle * modFreqY);
+      //var x = sin(angle * freqX + radians(phi)) * cos(angle * modFreqX);
+      //var y = sin(angle * freqY) * cos(angle * modFreqY);
 
     	var x = sin(angle*n * freqX + radians(phi)) * cos(angle*m * modFreqX);
     	var y = sin(angle*m * freqY) * cos(angle*n * modFreqY);
@@ -128,7 +128,7 @@ class Figure{
 
   // Increment fitness if mouse is rolling over face
   rollover(mx, my) {
-    if (this.r.contains(mx, my)) {
+    if (mouseIsPressed & (this.r.contains(mx, my))) {
       this.rolloverOn = true;
       this.fitness += 0.25;
     } else {

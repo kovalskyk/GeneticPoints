@@ -5,8 +5,8 @@ function setup() {
 	createCanvas(1500, 800); //createCanvas(800, 124); createCanvas(windowWidth, windowHeight);
 	colorMode(RGB, 255, 255, 255, 100); //colorMode(RGB, 1.0, 1.0, 1.0, 1.0);
 
-	let popmax = 6;
-	let mutationRate = 0.05; // A pretty high mutation rate here, our population is rather small we need to enforce variety
+	let popmax = 10;
+	let mutationRate = 0.01; // A pretty high mutation rate here, our population is rather small we need to enforce variety
 	// Create a population with a target phrase, mutation rate, and population max
 
 	population = new Population(mutationRate, popmax);
@@ -20,12 +20,14 @@ function setup() {
 
 console.log(population);
 	population.display();
+
+	console.log(windowWidth, windowHeight);
 }
 
 function draw() {
 
 	for (let y = 0; y < 2; y++) {
-    for (let x = 0; x < 3; x++) {
+    for (let x = 0; x < 5; x++) {
 
 			rectMode(CENTER);
       fill(255);
