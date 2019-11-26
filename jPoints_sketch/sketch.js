@@ -1,75 +1,60 @@
-//var ellipseColor;
-//var ellipsePos;
-let diameter;
-let ellipses = [];
-
-var lineWeight = 0.1;
-var pointCount = 600;
-
-var freqX = 4;
-var freqY = 7;
-var phi = 15;
-
-var modFreqX = 3;
-var modFreqY = 2;
-
 let population;
-
+let info;
 
 function setup() {
-	createCanvas(1500, 800);
-  colorMode(RGB, 255, 255, 255, 100);
-	background(220);
+	createCanvas(1500, 800); //createCanvas(800, 124); createCanvas(windowWidth, windowHeight);
+	colorMode(RGB, 255, 255, 255, 100); //colorMode(RGB, 1.0, 1.0, 1.0, 1.0);
+
 	let popmax = 6;
-  let mutationRate = 0.05;
+	let mutationRate = 0.05; // A pretty high mutation rate here, our population is rather small we need to enforce variety
+	// Create a population with a target phrase, mutation rate, and population max
 
 	population = new Population(mutationRate, popmax);
-	console.log(population);
 
-	lineColor = color(0,50);
+	// A simple button class
+	button = createButton("evolve new generation");
+	button.mousePressed(nextGen);
+	button.position(750/2, 700); //windowWidth/2, windowHeight-100
+	info = createDiv('');
+	info.position(750/2 + 30, 680); //10, 175
 
-	population.calc();
+console.log(population);
 	population.display();
 }
 
 function draw() {
-	fill(255);
-	noStroke();
-	rect(430, 320, 40, 40);
+
+	for (let y = 0; y < 2; y++) {
+    for (let x = 0; x < 3; x++) {
+
+			rectMode(CENTER);
+      fill(255);
+			noStroke();
+      rect(140+x*275, 300+y*320 + 10, 40, 40);
+
+    }
+  }
+
+	population.display3();
+
+	// background(255); //white background - otherwise the displayed stuff just builds up on top of itself
+  // Display the faces
+  // population.display();
+  population.rollover(mouseX, mouseY);
+  info.html("Generation #:" + population.getGenerations());
 }
 
-	function keyPressed(){
-		if (key == 'Q') {
-		population[0].rollover();
-	}
-}
-/*function keyPressed(){
-	if (key == '1') points.freqX--;
-	if (key == '2') points.freqX++;
-	points.freqX = max(points.freqX,1);
+// function keyPressed() {
+// 	console.log("shit");
+// }
 
-	if (key == '3') points.freqY--;
-	if (key == '4') points.freqY++;
-	points.freqY = max(points.freqY,1);
-
-	if (keyCode == LEFT_ARROW) points.phi -= 15;
-	if (keyCode == RIGHT_ARROW) points.phi += 15;
-
-	if (key == '7') points.modFreqX--;
-	if (key == '8') points.modFreqX++;
-	points.modFreqX = max(points.modFreqX,1);
-
-	if (key == '9') points.modFreqY--;
-	if (key == '0') points.modFreqY++;
-	points.modFreqY = max(points.modFreqY,1);
-
-	//console.log('freqX: ' + this.freqX + ', freqY: ' + this.freqY + ', phi: ' + this.phi + ', modFreqX: ' + this.modFreqX + ', modFreqY: ' + this.modFreqY);
-
-	points.calculateLissajousPoints();
-	points.drawLissajous();
-} */
-
+// If the button is clicked, evolve next generation
 function nextGen() {
-	population.selection();
-	population.reproduction();
+	background(255);
+
+  population.selection();
+  population.reproduction();
+
+	population.display();
+	console.log(population);
 }

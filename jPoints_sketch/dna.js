@@ -10,13 +10,13 @@ class DNA {
   constructor(newgenes) {
     // DNA is random floating point values between 0 and 1 (!!)
     // The genetic sequence
-    let len = 1; // Arbitrary length
+    let len = 20; // Arbitrary length
     if (newgenes) {
       this.genes = newgenes;
     } else {
       this.genes = new Array(len);
       for (let i = 0; i < this.genes.length; i++) {
-        this.genes[i] = random(0, 20);
+        this.genes[i] = random(0, 1);
       }
     }
   }

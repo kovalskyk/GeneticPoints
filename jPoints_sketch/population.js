@@ -15,21 +15,29 @@ class Population {
     this.population = []; // array to hold the current population
     this.matingPool = [];
     this.generations = 0; // Number of generations
+    // for (let i = 0; i < num; i++) {
+    //   this.population[i] = new Figure(new DNA(), 450 + i * 900, 400); //50 + i * 75, 60 |300 + i * 300, 300
+    // }
+
+    this.num = num;
+
     for (let i = 0; i < num; i++) {
       if (i < 3) {
-        this.population[i] = new Points(new DNA(), 450 + i * 900, 400);
+        this.population[i] = new Figure(new DNA(), 450 + i * 900, 500);
     } else {
-        this.population[i] = new Points(new DNA(), 450 + (i-3) * 900, 1600);
-    }
-  }
-}
-
-  calc() {
-    for (let i = 0; i < this.population.length; i++) {
-      this.population[i].calc();
+        this.population[i] = new Figure(new DNA(), 450 + (i-3) * 900, 1600);
     }
   }
 
+//   for (let i = 0; i < num; i++) {
+//
+//       this.population[i] = new Figure(new DNA(), 450 + i * 900, 400);
+//
+// }
+
+
+
+  }
 
   // Display all faces
   display() {
@@ -38,13 +46,12 @@ class Population {
     }
   }
 
-  //Are we rolling over any of the faces?
-  rollover() {
+  // Are we rolling over any of the faces?
+  rollover(mx, my) {
     for (let i = 0; i < this.population.length; i++) {
-      this.population[i].rollover();
+      this.population[i].rollover(mx, my);
     }
   }
-
 
   // Generate a mating pool
   selection() {
@@ -72,7 +79,7 @@ class Population {
   reproduction() {
     // Refill the population with children from the mating pool
     for (let i = 0; i < this.population.length; i++) {
-      // Spin the wheel of fortune to pick two parents
+      // Sping the wheel of fortune to pick two parents
       let m = floor(random(this.matingPool.length));
       let d = floor(random(this.matingPool.length));
       // Pick two parents
@@ -86,7 +93,15 @@ class Population {
       // Mutate their genes
       child.mutate(this.mutationRate);
       // Fill the new population with the new child
-      this.population[i] = new myEllipse(child, 50 + i * 75, 60);
+      // this.population[i] = new Figure(child, 50 + i * 75, 60);
+
+
+        if (i < 3) {
+          this.population[i] = new Figure(child, 450 + i * 900, 500);
+      } else {
+          this.population[i] = new Figure(child, 450 + (i-3) * 900, 1600);
+    }
+
     }
     this.generations++;
   }
@@ -105,4 +120,12 @@ class Population {
     }
     return record;
   }
+
+  //Call shit from figure:
+  display3(){
+    for (let i = 0; i < this.population.length; i++) {
+      this.population[i].display2();
+    }
+  }
+
 }
