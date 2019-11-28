@@ -101,7 +101,7 @@ class Figure{
     		var d = this.lissajousPoints[i1].dist(this.lissajousPoints[i2]);
     		var a = pow(1 / (d / this.connectionRadius + 1), 6);
     		if (d <= this.connectionRadius) {
-    			stroke(mycolor, a * this.lineAlpha); //this.lineColor
+    			stroke(mycolor, a * this.myAlpha); //this.lineColor
     			line(
     				this.lissajousPoints[i1].x,
     				this.lissajousPoints[i1].y,

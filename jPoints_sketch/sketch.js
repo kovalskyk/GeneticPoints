@@ -12,9 +12,9 @@ function setup() {
 	population = new Population(mutationRate, popmax);
 
 	// A simple button class
-	button = createButton("evolve new generation");
-	button.mousePressed(nextGen);
-	button.position(750/2, 700); //windowWidth/2, windowHeight-100
+	//button = createButton("evolve new generation");
+	//button.mousePressed(nextGen);
+	//button.position(750/2, 700); //windowWidth/2, windowHeight-100
 	info = createDiv('');
 	info.position(750/2 + 30, 680); //10, 175
 
@@ -58,4 +58,10 @@ function nextGen() {
 
 	population.display();
 	console.log(population);
+}
+
+function keyPressed() {
+	if (keyCode === ENTER) {
+		nextGen();
+	}
 }
